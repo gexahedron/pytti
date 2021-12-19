@@ -74,8 +74,8 @@ class HDMultiClipEmbedder(nn.Module):
     self.cut_pow = cut_pow
     self.border_mode = border_mode
     
-    
-    def forward(self, diff_image, input = None, device = DEVICE):
+
+  def forward(self, diff_image, input = None, device = DEVICE):
     """
     diff_image: (DifferentiableImage) input image
     returns images embeds
