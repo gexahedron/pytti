@@ -96,7 +96,7 @@ class HDMultiClipEmbedder(nn.Module):
         offsetx = torch.randint(0, side_x - size + 1, ())
         offsety = torch.randint(0, side_y - size + 1, ())
         cutout = input[:, :, offsety:offsety + size, offsetx:offsetx + size]
-        cutouts.append(resample(cutout, (self.cut_size, self.cut_size)))
+        cutouts.append(resample(cutout, (self.cut_sizes[0], self.cut_sizes[0])))
         offsets.append(torch.as_tensor([[offsetx / side_x, offsety / side_y]]).to(device))
         sizes.append(torch.as_tensor([[size / side_x, size / side_y]]).to(device))
     cutouts = self.augs(torch.cat(cutouts, dim=0))
